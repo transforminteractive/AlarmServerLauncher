@@ -10,6 +10,28 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property (strong) NSStatusItem *statusItem;
+@property (weak) IBOutlet NSMenu *menu;
+@property (nonatomic) NSTask *task;
+@property (weak) IBOutlet NSMenuItem *startMenu;
+@property (weak) IBOutlet NSMenuItem *stopMenu;
+@property (weak) IBOutlet NSMenuItem *stayMenu;
+@property (weak) IBOutlet NSMenuItem *awayMenu;
+
+typedef NS_ENUM(NSUInteger, AlarmState) {
+    ALARM_READY,
+    ALARM_STOPPED,
+    ALARM_EXIT,
+    ALARM_ENTRY,
+    ALARM_ON
+};
+
+- (IBAction)show:(id)sender;
+- (IBAction)start:(id)sender;
+- (IBAction)stop:(id)sender;
+- (IBAction)away:(id)sender;
+- (IBAction)stay:(id)sender;
+
+- (IBAction)preferences:(id)sender;
 
 @end
